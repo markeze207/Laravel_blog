@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Club;
