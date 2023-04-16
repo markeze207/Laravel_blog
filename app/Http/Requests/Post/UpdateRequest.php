@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'category_id' => '',
-            'tags' => '',
+            'tags' => 'required',
         ];
     }
 }

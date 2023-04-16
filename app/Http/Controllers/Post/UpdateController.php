@@ -8,17 +8,14 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
     public function __invoke(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
 
-        $tags = $data['tags'];
-        unset($data['tags']);
+        $this->service->update($data, $post);
 
-        $post->update($data);
-        $post->tags()->sync($tags);
         return redirect()->route('post.show', $post->id);
     }
 }
