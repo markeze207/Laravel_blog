@@ -43,6 +43,9 @@
                         value="{{ $tag->id }}">{{ $tag->title }}</option>
                 @endforeach
             </select>
+            @error('tags')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>
