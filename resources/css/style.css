@@ -96,3 +96,29 @@
 
 }
 
+.info__container-voiceovers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.voiceovers {
+
+    margin: 5px;
+
+}
+
+.info__container-watch-text {
+    font-family: Montserrat;
+    margin-bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info__container-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

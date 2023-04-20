@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Post;
 
+use App\Http\Controllers\BaseController;
 use App\Models\Category;
 use App\Models\Tag;
 

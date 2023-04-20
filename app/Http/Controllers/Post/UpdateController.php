@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Post;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Http\Requests\Post\UpdateRequest;
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\Tag;
 
 class UpdateController extends BaseController
 {
@@ -14,7 +12,7 @@ class UpdateController extends BaseController
     {
         $data = $request->validated();
 
-        $this->service->update($data, $post);
+        $this->postService->update($data, $post);
 
         return redirect()->route('post.show', $post->id);
     }
