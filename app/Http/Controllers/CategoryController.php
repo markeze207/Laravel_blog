@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\UpdateRequest;
 use App\Models\Category;
-use App\Models\Post;
-use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     public function index()
     {
@@ -25,12 +25,10 @@ class CategoryController extends Controller
         return view('category.create');
     }
 
-    public function store()
+    public function store(StoreRequest $request)
     {
-        $data = request()->validate([
-            'title' => 'string',
-        ]);
-        Category::create($data);
+        $data = $request->validated();
+        $this->categoryService->store($data);
         return redirect()->route('category.index');
     }
     public function edit(Category $category)
@@ -38,12 +36,10 @@ class CategoryController extends Controller
         return view('category.edit', compact('category'));
     }
 
-    public function update(Category $category)
+    public function update(Category $category, UpdateRequest $request)
     {
-        $data = request()->validate([
-            'title' => 'string',
-        ]);
-        $category->update($data);
+        $data = $request->validated();
+        $this->categoryService->update($data, $category);
         return redirect()->route('category.show', $category->id);
     }
 

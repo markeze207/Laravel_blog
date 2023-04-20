@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Category::factory(20)->create();
+        Brand::factory(20)->create();
         $tags = Tag::factory(40)->create();
         $posts = Post::factory(100)->create();
 

@@ -15,12 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SiteController@index')->name('site.index');
 
-Route::get('/images', 'ImageController@index')->name('image.index');
-
-Route::get('/images/find', 'ImageController@find')->name('image.find');
-
-Route::get('/images/show/{image}', 'ImageController@show')->name('image.show');
-
 // Posts
 
 Route::group(['namespace' => 'Post'], function() {
