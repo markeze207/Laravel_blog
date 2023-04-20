@@ -1,11 +1,18 @@
 @extends('layouts.main')
 
 @section('content')
+    <div>
+        <a href="{{ route('brand.create') }}">Create brand</a>
+    </div>
 
-<a href="{{ route('brand.create') }}">Create brand</a>
+    @foreach($brands as $brand)
+        <div><a href="{{ route('brand.show', $brand->id) }}">{{ $brand->id }}.{{ $brand->name }}</a></div>
+    @endforeach
+    <div>
+        {{ $brands->links() }}
+    </div>
 
-@foreach($brands as $brand)
-    <a href="{{ route('brand.show', $brand->id) }}">{{ $brand->id }}.{{ $brand->name }}</a>
-@endforeach
-<a href="{{ route('site.index') }}">Back</a>
+    <div>
+        <a href="{{ route('site.index') }}">Back</a>
+    </div>
 @endsection
