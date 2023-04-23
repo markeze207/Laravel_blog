@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SiteController@index')->name('site.index');
 
+
+Route::get('/login', 'HomeController@index');
 // Posts
 
 Route::group(['namespace' => 'Post'], function() {
@@ -78,6 +80,21 @@ Route::patch('/brands/{brand}', 'BrandController@update')->name('brand.update');
 Route::delete('/brand/{brand}', 'BrandController@destroy')->name('brand.destroy');
 
 Route::get('/brands/{brand}', 'BrandController@show')->name('brand.show');
+
+// Admin
+
+Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => 'admin'], function() {
+    Route::get('/', 'IndexController')->name('admin.index');
+    Route::group(['namespace' => 'Post'], function() {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Auth::routes();
 
