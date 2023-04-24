@@ -15,6 +15,22 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                        <div>
+                           <div>
+                               <a href="{{ route('post.index') }}">Posts</a>
+                           </div>
+                            <div>
+                                <a href="{{ route('category.index') }}">Categories</a>
+                            </div>
+                            <div>
+                                <a href="{{ route('brand.index') }}">Brands</a>
+                            </div>
+                            @if(auth()->user()->role == 'admin')
+                                <div>
+                                    <a href="{{ route('admin.index') }}">Admin panel</a>
+                                </div>
+                            @endif
+                        </div>
                 </div>
             </div>
         </div>
