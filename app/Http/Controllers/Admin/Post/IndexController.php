@@ -11,9 +11,10 @@ class IndexController extends Controller
     {
 
         $posts = Post::paginate(10);
+        $totalPosts = $posts->total();
 
 
-        return view('admin.post.index', compact('posts'));
+        return view('admin.post.index', compact('posts', 'totalPosts'));
 
     }
 }

@@ -6,7 +6,7 @@
             <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="{{ route('home') }}" class="d-block">Alexander Pierce</a>
         </div>
     </div>
 
@@ -34,12 +34,7 @@
                     <p>
                         Posts
                         <span class="badge badge-info right">
-                            @if(isset($posts))
-                                {{ $posts->total() }}
-                            @endif
-                            @if(isset($totalPosts))
-                                {{ $totalPosts->count() }}
-                            @endif
+                                {{ $totalPosts }}
                         </span>
                     </p>
                 </a>
