@@ -22,7 +22,7 @@ Route::get('/login', 'HomeController@index');
 Route::group(['namespace' => 'Post'], function() {
     Route::get('/posts', "IndexController")->name('post.index');
 
-    Route::get('/posts/create', "CreateController")->name('post.create');
+    Route::get('/posts/create', "CreateController")->name('post.create')->middleware('post.create');
     Route::post('/posts', "StoreController")->name('post.store');
 
     Route::get('/posts/{post}/edit', "EditController")->name('post.edit');
@@ -95,7 +95,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

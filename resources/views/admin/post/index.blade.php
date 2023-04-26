@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Projects</h1>
+                    <h1>Posts</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Projects</li>
+                        <li class="breadcrumb-item active">Posts</li>
                     </ol>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Projects</h3>
+                <h3 class="card-title">Posts</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -89,7 +89,11 @@
                                     </small>
                                 </td>
                                 <td class="project-state">
-                                    <span class="badge badge-success">{{ ($post->is_published) ? 'published' : 'no published' }}</span>
+                                    @if($post->is_published == 1)
+                                        <span class="badge badge-success">published</span>
+                                    @else
+                                        <span class="badge badge-danger">no published</span>
+                                    @endif
                                 </td>
                                 <td class="project-actions text-right" style="font-size: 12px;">
                                     <a class="btn btn-primary btn-sm" href="{{ route('post.show', $post->id) }}">

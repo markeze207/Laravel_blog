@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+    <div>
+        <a href="{{ route('post.create') }}">Create post</a>
+    </div>
     @if(count($posts) != 0)
         @foreach($posts as $post)
             <div><a href="{{ route('post.show', $post->id) }}">{{ $post->id }}.{{ $post->title }}</a></div>
