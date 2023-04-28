@@ -2,9 +2,6 @@
 
 @section('content')
 
-    <div>
-        <a href="{{ route('post.create') }}">Create post</a>
-    </div>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -22,13 +19,12 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section classs="content">
 
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Posts</h3>
-
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -37,6 +33,9 @@
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
+            </div>
+            <div style="margin-left: 19px;">
+                <a href="{{ route('post.create') }}">Create post</a>
             </div>
             <div class="card-body p-0">
                 <table class="table table-striped projects">
@@ -60,6 +59,7 @@
                         <th style="width: 20%">
                         </th>
                     </tr>
+
                     </thead>
                     <tbody>
                     @if(count($posts) != 0)

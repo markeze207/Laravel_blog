@@ -25,11 +25,11 @@
                             <div>
                                 <a href="{{ route('brand.index') }}">Brands</a>
                             </div>
-                            @if(auth()->user()->role == 'admin')
+                            @can('view', auth()->user())
                                 <div>
                                     <a href="{{ route('admin.index') }}">Admin panel</a>
                                 </div>
-                            @endif
+                            @endcan
                         </div>
                 </div>
             </div>
