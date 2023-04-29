@@ -36,6 +36,14 @@ Route::group(['namespace' => 'Post'], function() {
     Route::get('/posts/{post}', "ShowController")->name('post.show');
 });
 
+Route::group(['namespace' => 'API', 'prefix'=>'api'], function() {
+    Route::group(['namespace' => 'Post'], function() {
+        Route::get('/posts', 'PostController@index')->name('api.post.index');
+        Route::post('/posts', 'PostController@store')->name('api.post.store');
+        Route::patch('/posts/{post}', 'PostController@update')->name('api.post.update');
+    });
+});
+
 // Route::get('/posts', "PostController@index")->name('post.index');
 //
 // Route::get('/posts/create', "PostController@create")->name('post.create');
