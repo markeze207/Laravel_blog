@@ -26,21 +26,26 @@ class PostController extends BaseController
         return PostResource::collection($posts);
     }
 
+    public function show(Post $post)
+    {
+        return new PostResource($post);
+    }
+
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+        $post = $this->postService->store($data);
 
-        $posts = $this->postService->store($data);
+        return ($post instanceof Post) ? new PostResource($post) : $post;
 
-        return new PostResource($posts);
     }
 
     public function update(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
 
-        $posts = $this->postService->update($data, $post);
+        $post = $this->postService->update($data, $post);
 
-        return new PostResource($posts);
+        return ($post instanceof Post) ? new PostResource($post) : $post;
     }
 }
