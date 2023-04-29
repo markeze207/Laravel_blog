@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('site.index');
 
-
-Route::get('/login', 'HomeController@index');
-// Posts
 
 Route::group(['namespace' => 'Post'], function() {
     Route::get('/posts', "IndexController")->name('post.index');
