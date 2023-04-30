@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Jsonplaceholder;
 
 use App\Components\ImportDataClient;
 use Illuminate\Console\Command;
 
-class ImportJsonPlaceholderCommand extends Command
+class ImportJsonPostsCommand extends Command
 {
 
-    protected $signature = 'import:jsonplaceholder';
+    protected $signature = 'import:jsonposts';
 
 
-    protected $description = 'Get data from json placeholder';
+    protected $description = 'Get posts by jsonplaceholder API';
 
 
     public function handle()
@@ -21,7 +21,7 @@ class ImportJsonPlaceholderCommand extends Command
         $data = json_decode($response->getBody()->getContents());
         foreach($data as $item)
         {
-            dump($item->id);
+            dump('ID: '.$item->id."\nContent: ". $item->body);
         }
     }
 }
