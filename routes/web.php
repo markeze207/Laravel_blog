@@ -87,6 +87,9 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => 'admin'
     Route::group(['namespace' => 'Post'], function() {
         Route::get('/post', 'IndexController')->name('admin.post.index');
     });
+    Route::group(['namespace' => 'User'], function() {
+        Route::get('/user', 'IndexController')->name('admin.post.index');
+    });
 });
 
 
